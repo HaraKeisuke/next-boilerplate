@@ -6,7 +6,6 @@ import reducer, {
 } from "../sample";
 
 test("init", () => {
-  // $FlowFixMe
   expect(reducer(undefined, ResetAction())).toEqual(sampleInitialState);
 });
 
