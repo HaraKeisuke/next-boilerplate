@@ -1,27 +1,36 @@
-import { createAction, handleActions } from 'redux-actions';
-import { Dispatch } from 'redux';
+import { createAction, handleActions } from "redux-actions";
+import { Dispatch } from "redux";
 
 export const sampleInitialState = {
   count: 0
 };
 
 // Actions
+const RESET = "app/counter/RESET";
 const COUNTUP = "app/counter/COUNTUP";
 
-const CountUpAction = createAction(COUNTUP);
+export const ResetAction = createAction(RESET);
+export const CountUpAction = createAction(COUNTUP);
 
 // side effects
+export const reset = () => (dispatch: Dispatch) => {
+  dispatch(ResetAction());
+};
+
 export const countUp = () => (dispatch: Dispatch) => {
   dispatch(CountUpAction());
-}
+};
 
 // Reducer
 export default handleActions(
   {
-    [COUNTUP]: (state) => ({
-      ...state,
-      count: state.count + 1,
+    [RESET]: () => ({
+      ...sampleInitialState
     }),
+    [COUNTUP]: state => ({
+      ...state,
+      count: state.count + 1
+    })
   },
   sampleInitialState
 );
