@@ -1,10 +1,14 @@
 import { combineReducers } from "redux";
-import sample from "./sample";
+import sample, { sampleInitialState } from "./sample";
 
 export default () =>
   combineReducers({
     sample
   });
+
+export const getInitialState = () => ({
+  sample: sampleInitialState
+});
 
 /*
 /  Stateの型を定義しておく。useSelecterなどでフィルタしやすいように。

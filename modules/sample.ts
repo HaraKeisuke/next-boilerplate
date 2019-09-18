@@ -1,7 +1,7 @@
 import { createAction, handleActions } from 'redux-actions';
 import { Dispatch } from 'redux';
 
-const initialState = {
+export const sampleInitialState = {
   count: 0
 };
 
@@ -23,7 +23,7 @@ export default handleActions(
       count: state.count + 1,
     }),
   },
-  initialState
+  sampleInitialState
 );
 
 export interface Counter {
